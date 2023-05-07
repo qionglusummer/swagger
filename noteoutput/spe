@@ -1,0 +1,63 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "tit?",
+    "description" : "des",
+    "version" : "2.0"
+  },
+  "servers" : [ {
+    "url" : "https://virtserver.swaggerhub.com/171341531/sophietest/2.0",
+    "description" : "SwaggerHub API Auto Mocking"
+  } ],
+  "paths" : {
+    "/users/{userId}" : {
+      "get" : {
+        "summary" : "Returns a user by ID",
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "path",
+          "description" : "The ID of the user to return",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/inline_response_200"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "The specified user ID is invalid (e.g. not a number)"
+          },
+          "404" : {
+            "description" : "a A user with the specified ID was not found "
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "inline_response_200" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}
